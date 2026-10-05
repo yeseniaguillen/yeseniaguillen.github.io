@@ -104,6 +104,8 @@ body::after{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;
 .hero-sticky{position:relative;height:100%;overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
 .hero-sticky.dragging{cursor:grabbing}
 .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;pointer-events:none}
+.hero-tint{position:absolute;inset:0;background:#7A3A8A;mix-blend-mode:soft-light;opacity:.55;pointer-events:none}
+.hero-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 70% at 55% 45%,rgba(91,31,106,0) 40%,rgba(74,28,98,.75) 100%)}
 .hero-shade{position:absolute;inset:0;background:
   linear-gradient(180deg,rgba(18,10,23,.55) 0%,rgba(18,10,23,.05) 30%,rgba(18,10,23,.15) 60%,rgba(18,10,23,.92) 100%),
   linear-gradient(90deg,rgba(18,10,23,.7) 0%,rgba(18,10,23,0) 60%)}
@@ -158,6 +160,7 @@ section{position:relative}
 .mslides{position:absolute;inset:0}
 .mslides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.14);transition:opacity 1.4s ease,transform 7s linear}
 .mslides img.on{opacity:1;transform:scale(1)}
+.mslides::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(74,28,98,.35) 0%,rgba(91,31,106,.05) 30%,rgba(91,31,106,.05) 65%,rgba(18,10,23,.7) 100%);box-shadow:inset 0 0 90px rgba(74,28,98,.6)}
 .mbars{position:absolute;left:1rem;right:1rem;top:1rem;display:flex;gap:.4rem;z-index:2}
 .mbars button{flex:1;height:14px;position:relative}
 .mbars button::before,.mbars button i{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:rgba(244,238,227,.35);border-radius:2px}
@@ -191,7 +194,7 @@ section{position:relative}
 .card-media{position:relative;aspect-ratio:16/11;overflow:hidden}
 .card-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
 .card:hover .card-media img{transform:scale(1.07)}
-.card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(18,10,23,.85))}
+.card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(91,31,106,.12) 0%,rgba(91,31,106,.08) 45%,rgba(18,10,23,.85));box-shadow:inset 0 0 60px rgba(74,28,98,.55)}
 .badge{position:absolute;top:1rem;left:1rem;z-index:2;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;padding:.42rem .8rem;border-radius:100px;background:rgba(18,10,23,.6);backdrop-filter:blur(8px);border:1px solid var(--cream-faint)}
 .card-m2{position:absolute;z-index:2;right:1rem;bottom:.9rem;font-family:var(--serif);font-size:1.5rem}
 .card-m2 small{font-family:var(--sans);font-size:.7rem;color:var(--cream-dim);margin-right:.3rem;letter-spacing:.1em;text-transform:uppercase}
@@ -222,7 +225,7 @@ section{position:relative}
 .slide:nth-child(even){width:clamp(240px,32vw,500px);aspect-ratio:4/5}
 .slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);-webkit-user-drag:none}
 .slide:hover img{transform:scale(1.06)}
-.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(18,10,23,.82))}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(91,31,106,.12) 0%,rgba(91,31,106,.06) 50%,rgba(18,10,23,.82));box-shadow:inset 0 0 80px rgba(74,28,98,.6)}
 .slide-info{position:absolute;left:1.3rem;right:1.3rem;bottom:1.2rem;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:1rem}
 .slide-info small{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .slide-info b{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2.2vw,2rem);line-height:1.1}
@@ -407,6 +410,8 @@ textarea.field{resize:vertical;min-height:70px}
 <section class="hero" id="hero">
   <div class="hero-sticky">
     <video id="heroVideo" muted playsinline loop preload="auto" poster="img/hero-poster.jpg" aria-label="Vista con dron de Urb. Residencial California, Huaral"></video>
+    <div class="hero-tint"></div>
+    <div class="hero-vignette"></div>
     <div class="hero-shade"></div>
 
     <div class="hero-phase p1">
