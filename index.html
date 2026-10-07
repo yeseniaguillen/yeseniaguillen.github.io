@@ -271,9 +271,11 @@ section{position:relative}
 .stars{color:var(--gold);letter-spacing:.2em;font-size:.85rem;margin-bottom:1rem}
 
 /* ── YESENIA ── */
-.agent{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,6rem);align-items:center}
-.agent-photo{position:relative;aspect-ratio:3/4;border-radius:200px 200px 6px 6px;overflow:hidden;border:1px solid var(--line)}
+.agent{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.agent-text{max-width:680px;width:100%;justify-self:center}
+.agent-photo{position:relative;aspect-ratio:3/4;width:100%;width:min(480px,36vw);max-width:480px;justify-self:start;border-radius:200px 200px 6px 6px;overflow:hidden;border:1px solid var(--line)}
 .agent-photo img{width:100%;height:120%;object-fit:cover;object-position:50% 20%}
+.agent-photo::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(91,31,106,.14) 0%,rgba(91,31,106,.06) 50%,rgba(18,10,23,.55) 100%);box-shadow:inset 0 0 70px rgba(74,28,98,.6)}
 .agent-sign{font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1;color:var(--gold-2);margin:.6rem 0 1.2rem}
 .agent-quote{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.4;color:var(--cream);max-width:560px}
 .pillars{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;margin-top:2.6rem}
@@ -353,7 +355,7 @@ textarea.field{resize:vertical;min-height:70px}
   .grid{grid-template-columns:1fr}
   .testi-intro{position:relative;top:0}
   .tcard,.tcard:nth-child(2),.tcard:nth-child(3){position:relative;top:0}
-  .agent-photo{max-width:420px;width:100%;margin:0 auto}
+  .agent-photo{max-width:360px;width:100%;margin:0 auto;justify-self:center}
   .pillars{grid-template-columns:1fr}
   .slide,.slide:nth-child(even){width:82vw;aspect-ratio:4/5}
   .hgal-ctrl button{width:44px;height:44px}
@@ -563,7 +565,7 @@ textarea.field{resize:vertical;min-height:70px}
 <section class="wrap" id="yesenia" style="background:var(--ink-2)">
   <div class="agent">
     <div class="agent-photo reveal-media"><img src="img/pro-1.jpg" alt="Yesenia Guillén, agente inmobiliaria en Huaral" loading="lazy" /></div>
-    <div>
+    <div class="agent-text">
       <div class="label">Tu agente de confianza</div>
       <div class="agent-sign">Yesenia Guillén</div>
       <p class="agent-quote">“Ayudo a familias e inversionistas a encontrar su lote ideal en Huaral con total seguridad y confianza.”</p>
